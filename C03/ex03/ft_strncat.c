@@ -1,34 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 16:02:01 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/10 17:09:44 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/13 16:35:03 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/13 18:08:03 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
-	char	c;
-	int		i;
+	int	len;
+
+	len = 0;
+	while (*(str + len))
+	{
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_strcat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	unsigned int	dest_len;
 
 	i = 0;
-	c = ' ';
-	while (*(str + i))
+	dest_len = ft_strlen(dest);
+	while (i < nb)
 	{
-		c = *(str + i);
-		write(1, &c, 1);
+		dest[dest_len + i] = src[i];
 		i++;
 	}
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
 
 /*int	main(void)
 {
-	ft_putstr("Hello how are you doing?\n.....\n");
+	char	src[50] = " to this";
+	char	dest[50] = "Concat this";
+
+	ft_strcat(dest, src, 3);
+	printf("%s", dest);
 	return (0);
 }*/

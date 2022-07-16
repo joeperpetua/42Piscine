@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 15:06:58 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/07 16:14:12 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/16 16:01:50 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/16 16:21:56 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_print_reverse_alphabet(void)
+int	ft_strlen(char *str)
 {
-	char	letter;
+	int	len;
 
-	letter = 'z';
-	while (letter >= 'a')
+	len = 0;
+	while (str[len])
 	{
-		write(1, &letter, 1);
-		letter--;
+		len++;
 	}
+	return (len);
 }
 
 /*int	main(void)
 {
-	ft_print_reverse_alphabet();
+	int	len;
+
+	len = ft_strlen("Hello. how are you doing?");
+	printf("Length: %d\n", len);
 	return (0);
-*/
+}*/

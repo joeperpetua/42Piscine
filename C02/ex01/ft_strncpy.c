@@ -6,26 +6,23 @@
 /*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:04:24 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/12 15:52:30 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/13 11:15:26 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_putstr(char *str)
+unsigned int	ft_strlen(char *str)
 {
-	char	c;
-	int		i;
+	unsigned int	len;
 
-	i = 0;
-	c = ' ';
-	while (*(str + i))
+	len = 0;
+	while (*(str + len))
 	{
-		c = *(str + i);
-		write(1, &c, 1);
-		i++;
+		len++;
 	}
-}*/
+	return (len);
+}
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
@@ -34,7 +31,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	i = 0;
 	while (i < n)
 	{
-		if (src[i])
+		if (src[i] && i < ft_strlen(src) - 1)
 		{
 			dest[i] = src[i];
 		}
@@ -44,16 +41,26 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		}
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
-/*int	main(void)
-{
-	char	dest[60];
+/*char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-	ft_strncpy(dest, "Hello, my name is Karl", 10);
-	ft_putstr(dest);
-	ft_putstr("\n");
+int		main()
+{
+	int i;
+	char dest[] = "Epic fail !!!!!";
+	char src[] = "Success";
+	printf("%s\n%s\n%s\n", src, ft_strncpy(dest, src, 15), dest);
+	i = 9;
+	while (i < 15)
+	{
+	if (dest[i] != '\0')
+	{
+		printf("FAIL! got %c (\\%x) at pos %d\n", dest[i], dest[i], i);
+		return (1);
+	}
+		i++;
+	}
 	return (0);
 }*/

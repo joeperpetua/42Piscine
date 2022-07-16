@@ -6,11 +6,23 @@
 /*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:35:26 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/12 16:04:19 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:28:43 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+/*void	ft_putstr(char *str)
+{
+	int	l;
+
+	l = 0;
+	while (str[l])
+	{
+		l++;
+	}
+	write(1, str, l);
+}*/
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -32,9 +44,7 @@ int	ft_strlen(char *str)
 
 	len = 0;
 	while (*(str + len))
-	{
 		len++;
-	}
 	return (len);
 }
 
@@ -53,13 +63,9 @@ char	*ft_dec_to_hex(int dec)
 	{
 		mod = res % 16;
 		if (mod < 10)
-		{
 			hex[i] = 48 + mod;
-		}
 		else
-		{
 			hex[i] = 87 + mod;
-		}
 		res = res / 16;
 		i++;
 	}
@@ -72,14 +78,13 @@ void	ft_check_char(char c)
 	int		i;
 
 	i = 0;
-	if (c < 32)
+	ft_strcpy(hex, "");
+	if (c < 32 || c > 126)
 	{
 		write(1, "\\", 1);
 		ft_strcpy(hex, ft_dec_to_hex(c));
 		if (ft_strlen(hex) == 1)
-		{
 			write(1, "0", 1);
-		}
 		while (i < ft_strlen(hex))
 		{
 			c = hex[ft_strlen(hex) - 1 - i];
@@ -88,9 +93,7 @@ void	ft_check_char(char c)
 		}
 	}
 	else
-	{
 		write(1, &c, 1);
-	}
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -107,6 +110,11 @@ void	ft_putstr_non_printable(char *str)
 
 /*int	main(void)
 {
-	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+	char a[] = "Coucou\ntu vas bien ?";
+	char b[] = "\n\a\b\\s";
+	ft_putstr_non_printable(a);
+	ft_putstr("\n");
+	ft_putstr_non_printable(b);
+	ft_putstr("\n");
 	return (0);
 }*/

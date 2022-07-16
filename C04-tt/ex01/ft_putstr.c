@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 15:06:58 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/07 16:14:12 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/16 16:25:48 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/16 16:31:25 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_putstr(char *str)
 {
-	char	letter;
+	int		i;
+	char	c;
 
-	letter = 'z';
-	while (letter >= 'a')
+	i = 0;
+	while (str[i])
 	{
-		write(1, &letter, 1);
-		letter--;
+		c = str[i];
+		write(1, &c, 1);
+		i++;
 	}
 }
 
 /*int	main(void)
 {
-	ft_print_reverse_alphabet();
+	ft_putstr("Hello my friend");
 	return (0);
-*/
+}*/

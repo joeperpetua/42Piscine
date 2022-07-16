@@ -6,11 +6,11 @@
 /*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:08:53 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/12 17:13:49 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:09:39 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <unistd.h>
 
 void	ft_putchar(char c)
 {
@@ -50,12 +50,12 @@ void	ft_putnbr(int nb)
 	{
 		ft_convert(nb);
 	}
-}
+}*/
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
-	int	is_same;
+	unsigned int	i;
+	int				is_same;
 
 	i = 0;
 	is_same = 0;
@@ -63,12 +63,19 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	{
 		if (s1[i] < s2[i])
 		{
-				
+			is_same = -1;
 		}
 		else if (s1[i] > s2[i])
 		{
-		
+			is_same = 1;
 		}
 		i++;
 	}
+	return (is_same);
 }
+
+/*int	main(void)
+{
+	ft_putnbr(ft_strncmp("String 3", "String 2", 8));
+	return (0);	
+}*/
