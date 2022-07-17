@@ -6,7 +6,7 @@
 /*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 19:18:50 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/16 21:31:13 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/17 16:50:42 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_validate(char *base, int *base_int)
+int	ft_validate(char *base, unsigned int *base_int)
 {
 	int	i;
 	int	j;
@@ -42,7 +42,7 @@ int	ft_validate(char *base, int *base_int)
 	return (1);
 }
 
-void	ft_convert(int nbr, char *base, int base_int)
+void	ft_convert(unsigned int nbr, char *base, unsigned int base_int)
 {
 	if (nbr == 0)
 		return ;
@@ -52,26 +52,33 @@ void	ft_convert(int nbr, char *base, int base_int)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	base_int;
+	unsigned int	base_int;
+	unsigned int	nbr_converted;
 
 	base_int = 0;
 	if (ft_validate(base, &base_int) == 0)
 		return ;
 	if (nbr == 0)
-		putchar(base[0]);
+		ft_putchar(base[0]);
+	else if (nbr == -2147483648)
+	{
+		write(1, "-", 1);
+		nbr_converted = (unsigned int) nbr;
+		ft_convert(nbr_converted, base, base_int);
+		return ;
+	}
 	else if (nbr < 0)
 	{
 		write(1, "-", 1);
 		nbr = nbr * -1;
-		ft_convert(nbr, base, base_int);
 	}
-	else
-		ft_convert(nbr, base, base_int);
+	nbr_converted = (unsigned int) nbr;
+	ft_convert(nbr_converted, base, base_int);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	ft_putnbr_base(100, "0123456789ABCDEF");
+	ft_putnbr_base(90234, "0123456789ABCDEF");
 	ft_putchar('\n');
 	return (0);
-}*/
+}
