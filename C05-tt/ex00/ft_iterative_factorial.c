@@ -6,11 +6,11 @@
 /*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:08:07 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/18 17:30:32 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:59:47 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 int	ft_iterative_factorial(int nb)
 {
@@ -32,7 +32,7 @@ int	ft_iterative_factorial(int nb)
 	return (res);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	printf("%d\n", ft_iterative_factorial(4));
-}
+}*/
