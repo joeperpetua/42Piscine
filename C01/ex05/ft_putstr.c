@@ -18,10 +18,9 @@ void	ft_putstr(char *str)
 	int		i;
 
 	i = 0;
-	c = ' ';
-	while (*(str + i))
+	while (str[i])
 	{
-		c = *(str + i);
+		c = str[i];
 		write(1, &c, 1);
 		i++;
 	}
