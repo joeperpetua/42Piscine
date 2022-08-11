@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 16:02:01 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/10 17:09:44 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/10 17:12:18 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/28 12:16:18 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
-	char	c;
-	int		i;
+	int	len;
 
-	i = 0;
-	c = ' ';
-	while (*(str + i))
-	{
-		c = *(str + i);
-		write(1, &c, 1);
-		i++;
-	}
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
-
-/*int	main(void)
-{
-	ft_putstr("Hello how are you doing?\n.....\n");
-	return (0);
-}*/

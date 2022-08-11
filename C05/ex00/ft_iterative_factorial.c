@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 16:02:01 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/10 17:09:44 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/18 17:08:07 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/23 15:22:40 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_putstr(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	char	c;
-	int		i;
+	int	res;
 
-	i = 0;
-	c = ' ';
-	while (*(str + i))
+	if (nb == 0)
+		return (1);
+	else if (nb < 0)
+		return (0);
+	res = nb;
+	while (nb > 0)
 	{
-		c = *(str + i);
-		write(1, &c, 1);
-		i++;
+		if (nb == 1)
+			res *= nb;
+		else
+			res *= nb - 1;
+		nb--;
 	}
+	return (res);
 }
 
 /*int	main(void)
 {
-	ft_putstr("Hello how are you doing?\n.....\n");
-	return (0);
+	printf("%d\n", ft_iterative_factorial(4));
 }*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 16:02:01 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/10 17:09:44 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/28 12:09:24 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,3 @@ void	ft_putstr(char *str)
 		i++;
 	}
 }
-
-/*int	main(void)
-{
-	ft_putstr("Hello how are you doing?\n.....\n");
-	return (0);
-}*/

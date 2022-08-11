@@ -6,7 +6,7 @@
 /*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:35:03 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/13 18:08:03 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:40:17 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-char	*ft_strcat(char *dest, char *src, unsigned int nb)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	i;
 	unsigned int	dest_len;
 
 	i = 0;
 	dest_len = ft_strlen(dest);
-	while (i < nb)
+	while (i < nb && src[i])
 	{
 		dest[dest_len + i] = src[i];
 		i++;
@@ -45,7 +45,7 @@ char	*ft_strcat(char *dest, char *src, unsigned int nb)
 	char	src[50] = " to this";
 	char	dest[50] = "Concat this";
 
-	ft_strcat(dest, src, 3);
+	ft_strncat(dest, src, 10);
 	printf("%s", dest);
 	return (0);
 }*/

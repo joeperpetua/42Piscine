@@ -6,7 +6,7 @@
 /*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 18:13:54 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/14 10:53:41 by jperpetu         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:59:13 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ unsigned int	ft_strlen(char *str)
 
 	len = 0;
 	while (str[len])
-	{
 		len++;
-	}
 	return (len);
 }
 

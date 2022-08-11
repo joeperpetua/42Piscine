@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>*/
+/*#include <stdio.h>
+#include <string.h>*/
 
 unsigned int	ft_strlen(char *str)
 {
@@ -18,49 +19,34 @@ unsigned int	ft_strlen(char *str)
 
 	len = 0;
 	while (*(str + len))
-	{
 		len++;
-	}
 	return (len);
 }
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
+	unsigned int	src_len;
 
 	i = 0;
+	src_len = ft_strlen(src);
 	while (i < n)
 	{
-		if (src[i] && i < ft_strlen(src) - 1)
-		{
+		if (src[i] && i < src_len)
 			dest[i] = src[i];
-		}
 		else
-		{
 			dest[i] = '\0';
-		}
 		i++;
 	}
 	return (dest);
 }
 
-/*char	*ft_strncpy(char *dest, char *src, unsigned int n);
-
-int		main()
+/*int		main()
 {
-	int i;
-	char dest[] = "Epic fail !!!!!";
-	char src[] = "Success";
-	printf("%s\n%s\n%s\n", src, ft_strncpy(dest, src, 15), dest);
-	i = 9;
-	while (i < 15)
-	{
-	if (dest[i] != '\0')
-	{
-		printf("FAIL! got %c (\\%x) at pos %d\n", dest[i], dest[i], i);
-		return (1);
-	}
-		i++;
-	}
+	char dest[] = "hola";
+	char dest2[] = "hola";
+	char src[] = "hola";
+
+	printf("%s | %s \n", strncpy(dest, src, 3), ft_strncpy(dest2, src, 1));
 	return (0);
 }*/

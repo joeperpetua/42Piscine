@@ -1,96 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_putstr_non_printable2.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpetu <jperpetu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jperpetu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 13:35:26 by jperpetu          #+#    #+#             */
-/*   Updated: 2022/07/14 11:28:43 by jperpetu         ###   ########.fr       */
+/*   Created: 2022/07/21 11:37:30 by jperpetu          #+#    #+#             */
+/*   Updated: 2022/07/21 12:03:25 by jperpetu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
+/*#include <unistd.h>*/
 
-/*void	ft_putstr(char *str)
+void	ft_putchar(char c)
 {
-	int	l;
-
-	l = 0;
-	while (str[l])
-	{
-		l++;
-	}
-	write(1, str, l);
-}*/
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	write(1, &c, 1);
 }
 
-int	ft_strlen(char *str)
+void	ft_convert(int nbr, char *base)
 {
-	int	len;
-
-	len = 0;
-	while (*(str + len))
-		len++;
-	return (len);
+	if (nbr == 0)
+		return ;
+	ft_convert(nbr / 16, "0123456789abcdef");
+	ft_putchar(base[nbr % 16]);
 }
 
-char	*ft_dec_to_hex(int dec)
+void	ft_check_char(unsigned char c)
 {
-	int		i;
-	int		res;
-	int		mod;
-	char	hex[100];
-	char	*phex;
+	int	dec;
 
-	i = 0;
-	res = dec;
-	phex = hex;
-	while (res != 0)
-	{
-		mod = res % 16;
-		if (mod < 10)
-			hex[i] = 48 + mod;
-		else
-			hex[i] = 87 + mod;
-		res = res / 16;
-		i++;
-	}
-	return (phex);
-}
-
-void	ft_check_char(char c)
-{
-	char	hex[100];
-	int		i;
-
-	i = 0;
-	ft_strcpy(hex, "");
+	dec = 0;
 	if (c < 32 || c > 126)
 	{
 		write(1, "\\", 1);
-		ft_strcpy(hex, ft_dec_to_hex(c));
-		if (ft_strlen(hex) == 1)
+		if (c < 16)
 			write(1, "0", 1);
-		while (i < ft_strlen(hex))
-		{
-			c = hex[ft_strlen(hex) - 1 - i];
-			write(1, &c, 1);
-			i++;
-		}
+		dec = c + '0';
+		ft_convert(dec - 48, "0123456789abcdef");
 	}
 	else
 		write(1, &c, 1);
@@ -103,18 +50,22 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_check_char(str[i]);
+		ft_check_char((unsigned char)str[i]);
 		i++;
 	}
 }
 
 /*int	main(void)
 {
-	char a[] = "Coucou\ntu vas bien ?";
-	char b[] = "\n\a\b\\s";
+	char	a[] = "Coucou\ntu vas bien ?";
+	char	b[] = "\n\a\b\\s";
+	char	c[] = {203, 6, 123, 20, 31, 32, 33, 125, 126, 127, 0};
+
 	ft_putstr_non_printable(a);
-	ft_putstr("\n");
+	ft_putchar('\n');
 	ft_putstr_non_printable(b);
-	ft_putstr("\n");
+	ft_putchar('\n');
+	ft_putstr_non_printable(c);
+	ft_putchar('\n');
 	return (0);
 }*/
